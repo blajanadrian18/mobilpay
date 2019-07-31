@@ -5,6 +5,8 @@ namespace Adrianbarbos\Mobilpay;
 trait DataTrait {
     protected function initData() {
         $this->data = [
+            'paymentMethod' => '',
+            'service'       => '',
             'orderId'    => '',
             'amount'     => '',
             'currency'   => config('mobilpay.currency'),
@@ -15,6 +17,26 @@ trait DataTrait {
             'testMode'   => config('mobilpay.testMode'),
             'params' => []
         ];
+    }
+    
+    /**
+     * @param  $value string
+     * @return $this
+     */
+    public function setPaymentMethod($value) {
+        $this->data['paymentMethod'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param  $value string
+     * @return $this
+     */
+    public function setService($value) {
+        $this->data['service'] = $value;
+
+        return $this;
     }
 
     /**
